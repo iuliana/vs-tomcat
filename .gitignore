@@ -1,0 +1,12 @@
+*.log
+.classpath
+.project
+.settings
+target/
+test-output/
+.idea/
+ignored
+*.iml
+*.log.zip
+.DS_Store
+dependency-reduced-pom.xml
