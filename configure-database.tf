@@ -1,13 +1,13 @@
 resource "vsphere_tag" "db_tag" {
   name        = "terraform-test-database-server"
   category_id = vsphere_tag_category.category.id
-  description = "Tags MySQL managed by Terraform"
+  description = "DB managed by Terraform"
 }
 
 ##vSphere VMs - This is the section where we actually do the cloning of the virtual machine
 
 resource "vsphere_virtual_machine" "mysqlVM" {
-  name             = "terraform-test-mysql-vm"
+  name             = "terraform-db-vm"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
   guest_id = data.vsphere_virtual_machine.template.guest_id
