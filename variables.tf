@@ -16,4 +16,4 @@ variable "vm_user" {}
 
 variable "vm_password" {}
 
-variable "vm_name" {}
+variable "vm_name" {} # not used in this version
