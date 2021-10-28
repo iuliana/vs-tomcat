@@ -16,6 +16,8 @@ else
 
   sudo mkdir /usr/local/tomcat/webapps/health
   sudo su -c "echo 'true' > /usr/local/tomcat/webapps/health/index.html"
+  echo "brooklyn.example.db.url=jdbc:$1/visitors?user=brooklyn&password=br00k11n" | sudo tee -a /usr/local/tomcat/conf/catalina.properties
+  echo "brooklyn.example.db.driver=com.mysql.jdbc.Driver" | sudo tee -a /usr/local/tomcat/conf/catalina.properties
   echo "configured" | sudo tee /usr/local/tomcat/logs/configure.log
   echo "War copied. Configuration done." >> /tmp/terraform-provisioner.log
 fi

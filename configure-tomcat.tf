@@ -48,7 +48,7 @@ resource "vsphere_virtual_machine" "tomcatVM" {
     inline = [
       "chmod +x /tmp/*sh",
       "sudo /tmp/tomcat-create.sh",
-      "sudo /tmp/tomcat-configure.sh",
+      "sudo /tmp/tomcat-configure.sh mysql://${vsphere_virtual_machine.mysqlVM.default_ip_address}:3306",
       "sudo /tmp/tomcat-start.sh",
       "echo ${self.default_ip_address}",
     ]
@@ -61,4 +61,8 @@ resource "vsphere_virtual_machine" "tomcatVM" {
       host     = vsphere_virtual_machine.tomcatVM.default_ip_address
     }
   }
+
+  depends_on = [
+    vsphere_virtual_machine.mysqlVM
+  ]
 }
