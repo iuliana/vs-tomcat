@@ -58,7 +58,7 @@ resource "vsphere_virtual_machine" "mysqlVM" {
       type     = "ssh"
       user     = var.vm_user
       password = var.vm_password
-      host     = vsphere_virtual_machine.tomcatVM.default_ip_address
+      host     = vsphere_virtual_machine.mysqlVM.default_ip_address
     }
   }
 }
