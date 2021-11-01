@@ -18,4 +18,6 @@ variable "vm_password" {}
 
 variable "vm_name" {} # not used in this version
 
-variable "tomcat_vm_name" {}
+variable "tomcat_vm_name" {
+    default = "Tomcat-VM"
+}
